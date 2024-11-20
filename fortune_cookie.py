@@ -12,7 +12,7 @@ from random import*
 from time import*
 
 # Fortune Cookie Class
-class Fortune_Cookie:
+class Fortune_Cookie():
 
     # Constructor Method
     def __init__(self, message = None):
@@ -57,7 +57,7 @@ class Fortune_Cookie:
             # Print 5 Consecutive Periods Every Second
             for s in range(1, 9):
                 print(".", end='', flush=True)
-                sleep(0.5)
+                sleep(0.7)
 
             # Make A NewLine
             print("\n")
@@ -70,8 +70,33 @@ class Fortune_Cookie:
 
 # Main Function 
 def main(): 
-    Angel = Fortune_Cookie()
-    Angel.open_Fortune_Cookie()
+    
+    # Ask user for name
+    name = input("What is your name?: ")
+
+    # Ask if the user would like to open their fortune cookie
+    while True:
+        response = input(f"Hello, {name}. Would you like to read your fortune? (Y/N): ")
+
+        if response == 'Y' or response == 'y':
+            # Fortune Cookie Algorithm
+            fortune = Fortune_Cookie()
+            fortune.open_Fortune_Cookie()
+            print("\n")
+            # Sleep for 3 seconds
+            sleep(3)
+            continue
+        
+        elif response == 'N' or response == 'n':
+            print("Thank you for your participation. Goodbye!!!\n")
+            break
+
+        else:
+            print("Invalid Input, Please Select (Y/N) or (y/n).\n")
+            continue
+
+    exit() # Once the user response is a no
+
 
 # Access Main Function
 if __name__ == "__main__":
